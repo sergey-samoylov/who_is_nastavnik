@@ -34,3 +34,5 @@ Find out who is nastavnik (Russian for coach) BASH script
 
 > now you can use $nastavnik in your terminal to check who is on duty today.
 > Enjoy!
+
+![](https://github.com/sergey-samoylov/who_is_nastavnik/blob/main/nastavniki3.png)
