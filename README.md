@@ -9,6 +9,8 @@ __        ___             _                       _                    _ _
 
 </pre>
 
+![](http://samoylov.fun/img/roadInKislovodskPark.webp)
+
 - script with menue to find out who is nastavnik (coach) today
 - supports any number of people, who are coaches, could be teams or shifts
 - daily (24 hours), two days (48 hours) shifts are supported
