@@ -9,7 +9,7 @@ __        ___             _                       _                    _ _
 
 </pre>
 
-![](http://samoylov.fun/img/roadInKislovodskPark.webp)
+![](https://github.com/sergey-samoylov/who_is_nastavnik/blob/main/nastavniki_1.png)
 
 - script with menue to find out who is nastavnik (coach) today
 - supports any number of people, who are coaches, could be teams or shifts
