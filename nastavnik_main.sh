@@ -1,5 +1,14 @@
 #!/bin/bash
 
+    if [[ $1 = "-h" || $1 = "--help" ]]; then
+        printf "%s\n" "info:  Узнай, кто из наставников сегодня дежурит.
+       Если расписание поменялось, скрипт может адаптироваться
+       и перезаписать свой исполняемый файл."
+        printf "\n"
+        printf "%s\n" "usage: ${0##*/}"
+        exit 1
+    fi
+
 function main(){
     cmd="$(grep '^function' "$0" |grep -v "function main" |awk '{print $2}'|cut -d\( -f1|fzf --prompt "Посмотреть/Изменить расписание наставников: ")"
     $cmd
@@ -41,6 +50,17 @@ function change_nastavniki(){
     echo "shift_days=\$((\$hours/24))" >> change_nastavniki.sh
     echo "main_count=\$((\$delta_days / \$shift_days))" >> change_nastavniki.sh
     echo "nastavnik_index=\$(( \$main_count % \$nastavnik_num ))" >> change_nastavniki.sh
+}
+
+function about(){
+    if [[ $# -lt 1 || $1 = "-h" || $1 = "--help" ]]; then
+        printf "%s\n" "info: Узнай, кто из наставников сегодня дежурит.
+        Если расписание поменялось, скрипт может адаптироваться
+        и перезаписать свой исполняемый файл."
+        printf "\n"
+        printf "%s\n" "usage: ${0##*/}"
+        exit 1
+    fi
 }
 
 main
