@@ -23,6 +23,7 @@ Find out who is nastavnik (Russian for coach) BASH script
 - daily (24 hours), two days (48 hours) shifts are supported
 - easily change program. It will rewrite datafile. nastavnik_main.sh will be
   left intact.
+- if you prefer GUI version, there's now one with photo and buttons options
 
 ## How to use who_is_nastavnik:
 - copy nastavnik_main.sh and change_nastavniki.sh to your computer
@@ -31,8 +32,11 @@ Find out who is nastavnik (Russian for coach) BASH script
 - place both files to your scripts directory (for example .bin/)
 - write alias in your .zshrc or .bashrc (alias nastavnik='~/Scripts/nastavnik_main.sh')
 - source .zshrc or .bashrc
+- for those, from GUI-only realm, you can use just that function and make it
+  an app all by itself.
 
 > now you can use $nastavnik in your terminal to check who is on duty today.
 > Enjoy!
 
 ![](https://github.com/sergey-samoylov/who_is_nastavnik/blob/main/nastavniki3.png)
+![](https://github.com/sergey-samoylov/who_is_nastavnik/blob/main/nastavniki_4.png)

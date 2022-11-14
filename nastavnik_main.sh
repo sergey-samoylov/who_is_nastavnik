@@ -10,7 +10,9 @@
     fi
 
 function main(){
-    cmd="$(grep '^function' "$0" |grep -v "function main" |awk '{print $2}'|cut -d\( -f1|fzf --prompt "Посмотреть/Изменить расписание наставников: ")"
+    cmd="$(grep '^function' "$0" |grep -v "function main" \
+    |awk '{print $2}' \
+    |cut -d\( -f1|fzf --prompt "Посмотреть/Изменить расписание наставников: ")"
     $cmd
     exit 0
 }
@@ -56,11 +58,30 @@ function about(){
     if [[ $# -lt 1 || $1 = "-h" || $1 = "--help" ]]; then
         printf "%s\n" "info: Узнай, кто из наставников сегодня дежурит.
         Если расписание поменялось, скрипт может адаптироваться
-        и перезаписать свой исполняемый файл."
+        и перезаписать исполняемый файл."
         printf "\n"
         printf "%s\n" "usage: ${0##*/}"
         exit 1
     fi
+}
+
+function gui_nastavnik(){
+    clear
+    cd ~/Scripts
+    . change_nastavniki.sh
+    yad --form \
+    --center \
+    --window-icon="/home/sam/Scripts/img/icon.png" \
+    --title="Who is nastavnik - ${nastavniki[$nastavnik_index]}" --columns=3 --no-buttons --image-on-top \
+    --image=/home/sam/Scripts/img/${nastavniki[$nastavnik_index]}.jpg \
+    --field=" Sprint-9!sprint9":fbtn "gnome-terminal -- ranger $HOME/Dev/api_final_yatube" \
+    --field=" Telegram!telegram":fbtn "telegram-desktop" \
+    --field=" Calendar!calendar":fbtn "yad --calendar --no-buttons --width=400 --center --undecorated --close-on-unfocus" \
+    --field=" Webinars!vebinars":fbtn "" \
+    --field=" Явки!vebinars":fbtn "gnome-terminal -- vim $HOME/Scripts/nastavnik_main.sh" \
+    --field=" Пароли!vebinars":fbtn "" \
+    --text-info --back=#242424 --fore=#999999
+    cd ~/
 }
 
 main
